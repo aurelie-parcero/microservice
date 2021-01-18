@@ -1,23 +1,31 @@
 package springboot.campus.microservice.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-import springboot.campus.microservice.Character;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import springboot.campus.microservice.dao.CharacterDao;
+import springboot.campus.microservice.model.Character;
+
+import java.util.List;
 
 @RestController
 public class CharacterController {
-    //character/{id}
-    @GetMapping(value = "character/{id}")
-    public Character displayCharacter(@PathVariable int id) {
 
-        return new Character(id, new String("Kévin"), "Wizard");
-    }
+
+    @Autowired
+    private CharacterDao characterDao;
 
     //characters
     @GetMapping(value = "characters")
-    public String index() {
+    public List<Character> index() {
 
-        return "Hello World";
+        return characterDao.findAll();
     }
+
+    //characters/{id}
+    @GetMapping(value = "characters/{id}")
+    public Character getCharacterById(@PathVariable int id) {
+
+        return new Character(id, "Kévin", "Wizard");
+    }
+
 }

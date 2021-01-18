@@ -1,4 +1,4 @@
-package springboot.campus.microservice;
+package springboot.campus.microservice.model;
 
 public class Character {
     private int id;
