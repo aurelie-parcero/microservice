@@ -3,6 +3,9 @@ package springboot.campus.microservice.model;
 public class Character {
     private int id;
 
+    public Character() {
+    }
+
     public int getId() {
         return id;
     }
