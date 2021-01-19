@@ -11,10 +11,7 @@ import springboot.campus.microservice.model.Character;
 
 import java.util.List;
 
-@Api(tags = {"Character Manager"})
-@SwaggerDefinition(tags = {
-        @Tag(name = "Character Manager", description = "Get, put, post and delete characters")
-})
+@Api(tags = {"Character Manager"}, description = "Manage all your characters")
 @RestController
 public class CharacterController {
 
@@ -45,6 +42,7 @@ public class CharacterController {
         characterDao.save(character);
 
     }
+
     @ApiOperation(value = "Update character data")
     @PutMapping(value = "characters/{id}")
     public void editCharacter(@PathVariable int id, @RequestBody Character character) {
