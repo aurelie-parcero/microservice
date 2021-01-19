@@ -2,8 +2,6 @@ package springboot.campus.microservice.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.SwaggerDefinition;
-import io.swagger.annotations.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springboot.campus.microservice.dao.CharacterDao;
@@ -20,7 +18,7 @@ public class CharacterController {
     private CharacterDao characterDao;
 
     //characters
-    @ApiOperation(value = "Get characters list")
+    @ApiOperation(value = "Characters list", notes = "Get all the characters created", nickname = "charactersIndex")
     @GetMapping(value = "characters")
     public List<Character> index() {
 
