@@ -45,3 +45,8 @@ Ce dernier tag permet au ``pom`` d'hériter des propriétés d'un autre ``pom`` 
 
 ### Autowiring
 Permet d'instancier la classe directement en injectant les dépendances décrites dans les paramètres du constructeur.
+
+
+### Thymeleaf
+Thymeleaf est un moteur de template, une bibliothèque écrite en JAVA. Il permet à un développeur de définir un modèle de page HTML, XHTML ou HTML5 et de le remplir ultérieurement de données pour générer la page finale. Par conséquent, il réalise une partie Model-View d'un modèle Model-View-Controller .
+Le principe de conception important de Thymeleaf est qu'un modèle lui-même doit être correctement écrit (X) HTML.

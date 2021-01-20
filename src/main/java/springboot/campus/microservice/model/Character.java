@@ -1,7 +1,18 @@
 package springboot.campus.microservice.model;
 
+import springboot.campus.microservice.enums.TypeList;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+
 public class Character {
+
     private int id;
+
+    @NotBlank(message = "{name.not.blank}")
+    private String name;
+
+    @NotEmpty(message = "{type.not.empty}")
+    private TypeList type;
 
     public Character() {
     }
@@ -22,18 +33,15 @@ public class Character {
         this.name = name;
     }
 
-    public String getType() {
+    public TypeList getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TypeList type) {
         this.type = type;
     }
 
-    private String name;
-    private String type;
-
-    public Character(int id, String name, String type) {
+    public Character(int id, String name, TypeList type) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -47,4 +55,6 @@ public class Character {
                 ", type='" + type + '\'' +
                 '}';
     }
+
 }
+

@@ -1,6 +1,7 @@
 package springboot.campus.microservice.dao;
 
 import org.springframework.stereotype.Repository;
+import springboot.campus.microservice.enums.TypeList;
 import springboot.campus.microservice.model.Character;
 
 import java.util.ArrayList;
@@ -13,10 +14,10 @@ public class CharacterDaoImpl implements CharacterDao {
     public static List<Character> characters = new ArrayList<>();
 
     static {
-        characters.add(new Character(1, "Kevin", "Wizard"));
-        characters.add(new Character(2, "Morgan", "Warrior"));
-        characters.add(new Character(3, "Brian", "Wizard"));
-        characters.add(new Character(4, "Marvin", "Warrior"));
+        characters.add(new Character(1, "Kevin", TypeList.Wizard));
+        characters.add(new Character(2, "Morgan", TypeList.Warrior));
+        characters.add(new Character(3, "Brian", TypeList.Wizard));
+        characters.add(new Character(4, "Marvin", TypeList.Warrior));
     }
 
     @Override
@@ -37,6 +38,7 @@ public class CharacterDaoImpl implements CharacterDao {
 
     @Override
     public Character save(Character character) {
+        character.setId(characters.size() + 1);
         characters.add(character);
         return character;
     }
