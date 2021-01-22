@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Characters List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+<h1>Liste des personnages</h1>
+<div></div>
+<div class="characters-list">
+    <div class="wizards-list" th:if="${type == null || type == 'wizard'}">
+        <h3>Wizards</h3>
+        <ul>
+            <li class="li-wizard" th:each="character : ${characters}" th:if="${character.type == 'WIZARD'}">
+                <a th:href="@{/character/{id}(id=${character.id})}"
+                   th:text="${character.id} + ' - ' + ${character.name}"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="warriors-list" th:if="${type == null || type == 'warrior'}">
+        <h3>Warriors</h3>
+        <ul>
+            <li class="li-warrior" th:each="character : ${characters}" th:if="${character.type == 'WARRIOR'}">
+                <a th:href="@{/character/{id}(id=${character.id})}"
+                   th:text="${character.id} + ' - ' + ${character.name}"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="form-buttons">
+    <a th:if="${type != null}" class="add-button retour" th:href="@{/characters}">All characters</a>
+
+    <a th:href="@{/characters/new}" class="add-button">Add a new character</a>
+
+</div>
+</body>
+</html>

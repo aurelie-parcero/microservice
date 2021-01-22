@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${character.name}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<h1 th:text="${character.name}"></h1>
+
+<ul class="detail-list">
+    <li><span>ID: </span><span class="bold-red" th:text="${character.id}"></span></li>
+    <li><span>Type: </span><span class="bold-red" th:text="${character.type}"></span></li>
+</ul>
+
+<div class="form-buttons">
+    <a class="add-button" th:href="@{/character/{id}/edit(id=${character.id})}">Edit</a>
+    <a class="add-button" th:href="@{/character/{id}/delete(id=${character.id})}">Delete</a>
+</div>
+
+<div class="form-buttons">
+    <a class="add-button retour" th:href="@{/characters}">All characters</a>
+    <a class="add-button retour" th:href="@{'/characters?type=' + ${#strings.toLowerCase(character.type)}}" th:text="All + ' ' + ${#strings.capitalize(#strings.toLowerCase(character.type))} + 's'"></a>
+</div>
+
+</html>
